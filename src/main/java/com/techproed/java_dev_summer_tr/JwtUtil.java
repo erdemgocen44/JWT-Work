@@ -1,5 +1,6 @@
 package com.techproed.java_dev_summer_tr;
 
+import java.util.Date;
 import java.util.function.Function;
 
 import org.springframework.stereotype.Service;
@@ -22,5 +23,13 @@ public class JwtUtil {
 	
 	public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
+    }
+	
+	public Date extractExpiration(String token) {
+        return extractClaim(token, Claims::getExpiration);
+    }
+	
+	private Boolean isTokenExpired(String token) {
+        return extractExpiration(token).before(new Date());
     }
 }
