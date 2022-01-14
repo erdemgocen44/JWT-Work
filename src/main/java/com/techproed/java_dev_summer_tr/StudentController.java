@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class StudentController {
-@GetMapping(path="/students")
-public String getStudents() {
-	return "Ali Can, Veli Han, Kerem Tan";
-}
+	@GetMapping(path = "/students")
+	public String getStudents() {
+		return "Ali Can, Veli Han, Kerem Tan";
+	}
 }
